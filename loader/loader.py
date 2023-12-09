@@ -20,10 +20,11 @@ def upload():
         })
         upload_posts(posts)
         file.save(f'uploads/images/{filename}')
+        return render_template('post_uploaded.html', pic=f'/uploads/images/{filename}', content=content)
 
     except FileNotFoundError:
         return '<h1> Файл не найден!</h1>'
-    else:
-        return render_template('post_uploaded.html', pic=f'/uploads/images/{filename}', content=content)
+    # else:
+    #     return render_template('post_uploaded.html', pic=f'/uploads/images/{filename}', content=content)
 
-#
+
